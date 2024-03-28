@@ -1,4 +1,15 @@
 class Produto {
+  final String nome;
+  double valor;
+  int qtdEmEstoque;
+  int qtdVendida = 0;
+
+  Produto({
+    required this.nome,
+    required this.valor,
+    required this.qtdEmEstoque,
+  });
+
   void realizarVenda() {
     if (qtdEmEstoque < 0) {
       throw ArgumentError('Quantidade inválida.');
