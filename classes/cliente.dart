@@ -3,15 +3,16 @@ import 'pessoa.dart';
 import 'produto.dart';
 
 class Cliente extends Pessoa {
-  final double? dinheiro;
+  double dinheiro = 0;
   List<Produto> produtosComprados = [];
 
-  Cliente({
+  Cliente(
+    this.dinheiro, {
     required String nome,
     required DateTime dataDeNascimento,
     required String cpf,
     required Genero genero,
-    this.dinheiro,
+    
   }) : super(
           nome: nome,
           dataDeNascimento: dataDeNascimento,
@@ -22,7 +23,10 @@ class Cliente extends Pessoa {
   @override
   void falar(String mensagem) {}
 
-  void adicionarDinheiro() {}
+  void adicionarDineiro(double valor) {
+    dinheiro += valor;
+    print("$nome possui agora $dinheiro");
+  }
 
   void comprarProduto() {}
 }
