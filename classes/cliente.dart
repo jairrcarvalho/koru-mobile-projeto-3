@@ -28,5 +28,25 @@ class Cliente extends Pessoa {
     print("$nome possui agora $dinheiro");
   }
 
-  void comprarProduto() {}
+  void comprarProduto(Produto produto, Revendedor revendedor) {
+    late double? dinheiroPreCompra = dinheiro;
+    if (dinheiro != null && dinheiro! >= produto.valor) {
+      revendedor.venderProduto();
+      dinheiro = dinheiroPreCompra! - produto.valor;
+      String valorArredondado = produto.valor.toStringAsFixed(2);
+      String dinheiroPreCompraArredondado =
+          dinheiroPreCompra.toStringAsFixed(2);
+      String dinheiroArredondado = dinheiro!.toStringAsFixed(2);
+      produtosComprados.add(produto);
+      print("Valor do produto: R\$ " + valorArredondado);
+      print("Saldo do cliente: R\$ " + dinheiroPreCompraArredondado);
+      print("Saldo do cliente após a compra: R\$ " + dinheiroArredondado);
+      for (var produto in produtosComprados) {
+        print("Produto comprado: ${produto.nome}");
+      }
+    } else {
+      print(
+          "$nome não possui dinheiro suficiente para comprar o produto ${produto.nome}.");
+    }
+  }
 }
