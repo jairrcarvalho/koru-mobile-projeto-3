@@ -21,7 +21,9 @@ class Cliente extends Pessoa {
         );
 
   @override
-  void falar(String mensagem) {}
+  void falar(String mensagem) {
+    print("Cliente $nome diz: $mensagem.");
+  }
 
   void adicionarDineiro(double valor) {
     dinheiro += valor;
