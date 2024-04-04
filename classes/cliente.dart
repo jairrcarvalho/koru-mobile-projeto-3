@@ -1,6 +1,7 @@
 import 'enums.dart';
 import 'pessoa.dart';
 import 'produto.dart';
+import 'revendedor.dart';
 
 class Cliente extends Pessoa {
   double dinheiro = 0;
@@ -12,7 +13,6 @@ class Cliente extends Pessoa {
     required DateTime dataDeNascimento,
     required String cpf,
     required Genero genero,
-    
   }) : super(
           nome: nome,
           dataDeNascimento: dataDeNascimento,
@@ -32,13 +32,13 @@ class Cliente extends Pessoa {
 
   void comprarProduto(Produto produto, Revendedor revendedor) {
     late double? dinheiroPreCompra = dinheiro;
-    if (dinheiro != null && dinheiro! >= produto.valor) {
+    if (dinheiro >= produto.valor) {
       revendedor.venderProduto();
-      dinheiro = dinheiroPreCompra! - produto.valor;
+      dinheiro = dinheiroPreCompra - produto.valor;
       String valorArredondado = produto.valor.toStringAsFixed(2);
       String dinheiroPreCompraArredondado =
           dinheiroPreCompra.toStringAsFixed(2);
-      String dinheiroArredondado = dinheiro!.toStringAsFixed(2);
+      String dinheiroArredondado = dinheiro.toStringAsFixed(2);
       produtosComprados.add(produto);
       print("Valor do produto: R\$ " + valorArredondado);
       print("Saldo do cliente: R\$ " + dinheiroPreCompraArredondado);
