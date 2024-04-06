@@ -20,7 +20,21 @@ class Revendedor extends Pessoa {
             genero: genero);
 
   @override
-  void falar(String mensagem) {}
+  void falar(String mensagem) {
+    String prefixo;
+    switch (genero) {
+      case Genero.masculino:
+        prefixo = 'Revendedor';
+        break;
+      case Genero.feminino:
+        prefixo = 'Revendedora';
+        break;
+      case Genero.outro:
+        prefixo = 'Pessoa revendedora';
+        break;
+    }
+    print('$prefixo $nome diz: $mensagem');
+  }
 
   void venderProduto(Produto produto) {
     produto.realizarVenda();
