@@ -2,7 +2,7 @@ import 'enums.dart';
 
 class Pessoa {
   final String nome;
-  int? idade;
+  late int idade;
   final String cpf;
   final DateTime dataDeNascimento;
   final Genero genero;
@@ -12,11 +12,11 @@ class Pessoa {
     required this.nome,
     required this.dataDeNascimento,
     required this.cpf,
-  });
+  }) {
+    idade = _calcularIdade();
+  }
 
   void maiorIdade() {
-    final idade = calcularIdade();
-
     if (idade >= 18) {
       print('$nome tem $idade anos, portanto é maior de idade.');
     } else {
@@ -28,7 +28,7 @@ class Pessoa {
     print("$nome diz: $mensagem");
   }
 
-  int calcularIdade() {
+  int _calcularIdade() {
     final DateTime dataAtual = DateTime.now();
     int idade = dataAtual.year - dataDeNascimento.year;
     if (dataAtual.month < dataDeNascimento.month ||

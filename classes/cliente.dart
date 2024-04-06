@@ -33,7 +33,7 @@ class Cliente extends Pessoa {
   void comprarProduto(Produto produto, Revendedor revendedor) {
     late double? dinheiroPreCompra = dinheiro;
     if (dinheiro >= produto.valor) {
-      revendedor.venderProduto();
+      revendedor.venderProduto(produto);
       dinheiro = dinheiroPreCompra - produto.valor;
       String valorArredondado = produto.valor.toStringAsFixed(2);
       String dinheiroPreCompraArredondado =

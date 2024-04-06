@@ -1,9 +1,10 @@
 import 'enums.dart';
 import 'pessoa.dart';
+import 'produto.dart';
 
 class Revendedor extends Pessoa {
   final String matricula;
-  List<String> produtosVendidos = [];
+  List<Produto> produtosVendidos = [];
   double porcentagemLucro = 0.1;
 
   Revendedor({
@@ -21,5 +22,8 @@ class Revendedor extends Pessoa {
   @override
   void falar(String mensagem) {}
 
-  void venderProduto() {}
+  void venderProduto(Produto produto) {
+    produto.realizarVenda();
+    produtosVendidos.add(produto);
+  }
 }
