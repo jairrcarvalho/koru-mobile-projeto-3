@@ -1,7 +1,9 @@
 // Importações dos arquivos que serão utilizados
+import 'classes/cliente.dart';
 import 'classes/enums.dart';
 import 'classes/pessoa.dart';
 import 'classes/produto.dart';
+import 'classes/revendedor.dart';
 import 'utils.dart';
 
 /**
@@ -122,4 +124,79 @@ main() {
   pularLinha();
 
   /* ------------------------------------------ */
+
+  Revendedor revendedorA = Revendedor(
+      nome: 'Matheus Queiroz',
+      dataDeNascimento: DateTime(2000, 12, 01),
+      cpf: '0121212121',
+      matricula: '1234',
+      genero: Genero.masculino);
+
+  Revendedor revendedorB = Revendedor(
+      nome: 'Thais',
+      dataDeNascimento: DateTime(1990, 05, 01),
+      cpf: '51651651645',
+      matricula: '1223',
+      genero: Genero.feminino);
+
+  Revendedor revendedorC = Revendedor(
+      nome: 'Tereza',
+      dataDeNascimento: DateTime(1960, 01, 01),
+      cpf: '0121212121',
+      matricula: '1343',
+      genero: Genero.outro);
+
+  revendedorA.falar('Olá pessoal estão vendendo bem?');
+  revendedorB.falar('Estou vendendo muito bem e você Tereza?');
+  revendedorC.falar('Também estou vendendo bem.');
+
+  revendedorA.venderProduto(produtoA);
+  revendedorA.venderProduto(produtoB);
+  revendedorA.venderProduto(produtoC);
+
+  pularLinha();
+
+  Cliente clienteA = Cliente(
+    nome: 'Marcos',
+    dinheiro: 2000.50,
+    dataDeNascimento: DateTime(1994, 05, 06),
+    cpf: '122345454454',
+    genero: Genero.masculino,
+  );
+
+  Cliente clienteB = Cliente(
+    nome: 'Mario',
+    dinheiro: 10000000,
+    dataDeNascimento: DateTime(2000, 10, 01),
+    cpf: '154654655216516',
+    genero: Genero.outro,
+  );
+
+  Cliente clienteC = Cliente(
+    nome: 'Julia',
+    dataDeNascimento: DateTime(2001, 02, 20),
+    cpf: '64565456456465',
+    genero: Genero.feminino,
+  );
+
+  clienteA.falar('Quero comprar um perfume');
+  revendedorA.falar('Fale com meu minha amiga Thais');
+  revendedorB.falar('Estou aqui para te atender');
+  clienteA.falar('Oi, como posso ajudar?');
+  clienteB.falar('Também quero comprar.');
+  clienteC.falar('Já comprei com ela muito boa revendedora.');
+
+  pularLinha();
+
+  clienteC.adicionarDineiro(200.33);
+  clienteC.adicionarDineiro(150.55);
+  pularLinha();
+
+  clienteC.comprarProduto(produtoB, revendedorB);
+
+  pularLinha();
+
+  clienteC.comprarProduto(produtoA, revendedorB);
+
+  pularLinha();
 }
