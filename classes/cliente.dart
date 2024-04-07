@@ -4,11 +4,11 @@ import 'produto.dart';
 import 'revendedor.dart';
 
 class Cliente extends Pessoa {
-  double dinheiro = 0;
+  double dinheiro;
   List<Produto> produtosComprados = [];
 
-  Cliente(
-    this.dinheiro, {
+  Cliente({
+    this.dinheiro = 0,
     required String nome,
     required DateTime dataDeNascimento,
     required String cpf,
