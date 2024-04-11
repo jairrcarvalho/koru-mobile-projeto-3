@@ -154,6 +154,8 @@ main() {
   revendedorA.venderProduto(produtoB);
   revendedorA.venderProduto(produtoC);
 
+  print(revendedorA.calcularLucro());
+
   pularLinha();
 
   Cliente clienteA = Cliente(

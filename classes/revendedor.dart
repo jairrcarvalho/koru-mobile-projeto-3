@@ -40,4 +40,18 @@ class Revendedor extends Pessoa {
     produto.realizarVenda();
     produtosVendidos.add(produto);
   }
+
+  double calcularTotalVendidoTemp() {
+    double total = 0.0;
+    for (var produto in produtosVendidos) {
+      total += produto.valor;
+    }
+    return total;
+  }
+
+  double calcularLucro() {
+    double totalLucro = 0.0;
+    totalLucro = calcularTotalVendidoTemp() * porcentagemLucro;
+    return totalLucro;
+  }
 }
