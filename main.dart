@@ -190,6 +190,7 @@ main() {
 
   clienteC.adicionarDineiro(200.33);
   clienteC.adicionarDineiro(150.55);
+  clienteC.adicionarDineiro(1000.00);
   pularLinha();
 
   clienteC.comprarProduto(produtoB, revendedorB);
@@ -199,4 +200,6 @@ main() {
   clienteC.comprarProduto(produtoA, revendedorB);
 
   pularLinha();
+
+  print(clienteC.calcularTotalGasto());
 }
