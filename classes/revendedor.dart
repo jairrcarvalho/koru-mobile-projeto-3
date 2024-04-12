@@ -37,7 +37,11 @@ class Revendedor extends Pessoa {
   }
 
   void venderProduto(Produto produto) {
-    produto.realizarVenda();
-    produtosVendidos.add(produto);
+    try {
+      produto.realizarVenda();
+      produtosVendidos.add(produto);
+    } catch (e) {
+      throw e; 
+    }
   }
 }
