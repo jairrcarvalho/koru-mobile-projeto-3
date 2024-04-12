@@ -51,4 +51,17 @@ class Cliente extends Pessoa {
           "$nome não possui dinheiro suficiente para comprar o produto ${produto.nome}.");
     }
   }
+
+  double calcularMediaProdutosComprados() {
+    if (produtosComprados.isEmpty) {
+      return 0;
+    }
+
+    double soma = 0;
+    for (var produto in produtosComprados) {
+      soma += produto.valor;
+    }
+
+    return soma / produtosComprados.length;
+  }
 }

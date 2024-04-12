@@ -40,4 +40,12 @@ class Revendedor extends Pessoa {
     produto.realizarVenda();
     produtosVendidos.add(produto);
   }
+
+  double calcularTotalVendido() {
+    double totalVendido = 0.0;
+    for (Produto produto in produtosVendidos) {
+      totalVendido += produto.valor * produto.qtdVendida;
+    }
+    return totalVendido;
+  }
 }
