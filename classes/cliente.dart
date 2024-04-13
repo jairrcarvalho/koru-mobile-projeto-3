@@ -63,5 +63,12 @@ class Cliente extends Pessoa {
     }
 
     return soma / produtosComprados.length;
+
+  double calcularTotalGasto() {
+    double total = 0.0;
+    for (var produto in produtosComprados) {
+      total += produto.valor;
+    }
+    return total;
   }
 }
