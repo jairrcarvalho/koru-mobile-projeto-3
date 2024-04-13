@@ -31,24 +31,28 @@ class Cliente extends Pessoa {
   }
 
   void comprarProduto(Produto produto, Revendedor revendedor) {
-    late double? dinheiroPreCompra = dinheiro;
-    if (dinheiro >= produto.valor) {
-      revendedor.venderProduto(produto);
-      dinheiro = dinheiroPreCompra - produto.valor;
-      String valorArredondado = produto.valor.toStringAsFixed(2);
-      String dinheiroPreCompraArredondado =
-          dinheiroPreCompra.toStringAsFixed(2);
-      String dinheiroArredondado = dinheiro.toStringAsFixed(2);
-      produtosComprados.add(produto);
-      print("Valor do produto: R\$ " + valorArredondado);
-      print("Saldo do cliente: R\$ " + dinheiroPreCompraArredondado);
-      print("Saldo do cliente após a compra: R\$ " + dinheiroArredondado);
-      for (var produto in produtosComprados) {
+    try{
+      late double? dinheiroPreCompra = dinheiro;
+      if (dinheiro >= produto.valor) {
+        revendedor.venderProduto(produto);
+        dinheiro = dinheiroPreCompra - produto.valor;
+        String valorArredondado = produto.valor.toStringAsFixed(2);
+        String dinheiroPreCompraArredondado =
+        dinheiroPreCompra.toStringAsFixed(2);
+        String dinheiroArredondado = dinheiro.toStringAsFixed(2);
+        produtosComprados.add(produto);
+        print("Valor do produto: R\$ " + valorArredondado);
+        print("Saldo do cliente: R\$ " + dinheiroPreCompraArredondado);
+        print("Saldo do cliente após a compra: R\$ " + dinheiroArredondado);
+        for (var produto in produtosComprados) {
         print("Produto comprado: ${produto.nome}");
-      }
-    } else {
-      print(
+        }
+      } else {
+      throw Exception(
           "$nome não possui dinheiro suficiente para comprar o produto ${produto.nome}.");
+     }
+    }catch(e){
+      print("Erro ao efetuar a comprar: $e");
     }
   }
 
