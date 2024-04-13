@@ -202,6 +202,4 @@ main() {
   clienteC.comprarProduto(produtoA, revendedorB);
 
   pularLinha();
-
-  print(clienteC.calcularTotalGasto());
 }
