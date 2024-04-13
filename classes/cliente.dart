@@ -52,6 +52,18 @@ class Cliente extends Pessoa {
     }
   }
 
+  double calcularMediaProdutosComprados() {
+    if (produtosComprados.isEmpty) {
+      return 0;
+    }
+
+    double soma = 0;
+    for (var produto in produtosComprados) {
+      soma += produto.valor;
+    }
+
+    return soma / produtosComprados.length;
+
   double calcularTotalGasto() {
     double total = 0.0;
     for (var produto in produtosComprados) {
