@@ -78,7 +78,7 @@ class Cliente extends Pessoa {
     }
     return total;
   }
-  void ordenarProdutosComprados(List<Produto> produtosComprados){
+ void ordenarProdutosComprados(List<Produto> produtosComprados){
     produtosComprados.sort((a, b) => a.nome.compareTo(b.nome));
   }
 }
