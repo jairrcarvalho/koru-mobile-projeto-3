@@ -31,27 +31,27 @@ class Cliente extends Pessoa {
   }
 
   void comprarProduto(Produto produto, Revendedor revendedor) {
-    try{
+    try {
       late double? dinheiroPreCompra = dinheiro;
       if (dinheiro >= produto.valor) {
         revendedor.venderProduto(produto);
         dinheiro = dinheiroPreCompra - produto.valor;
         String valorArredondado = produto.valor.toStringAsFixed(2);
         String dinheiroPreCompraArredondado =
-        dinheiroPreCompra.toStringAsFixed(2);
+            dinheiroPreCompra.toStringAsFixed(2);
         String dinheiroArredondado = dinheiro.toStringAsFixed(2);
         produtosComprados.add(produto);
         print("Valor do produto: R\$ " + valorArredondado);
         print("Saldo do cliente: R\$ " + dinheiroPreCompraArredondado);
         print("Saldo do cliente após a compra: R\$ " + dinheiroArredondado);
         for (var produto in produtosComprados) {
-        print("Produto comprado: ${produto.nome}");
+          print("Produto comprado: ${produto.nome}");
         }
       } else {
-      throw Exception(
-          "$nome não possui dinheiro suficiente para comprar o produto ${produto.nome}.");
-     }
-    }catch(e){
+        throw Exception(
+            "$nome não possui dinheiro suficiente para comprar o produto ${produto.nome}.");
+      }
+    } catch (e) {
       print("Erro ao efetuar a comprar: $e");
     }
   }
@@ -77,7 +77,15 @@ class Cliente extends Pessoa {
     return total;
   }
 
-  void ordenarProdutosComprados(List<Produto> produtosComprados){
+  void ordenarProdutosComprados(List<Produto> produtosComprados) {
     produtosComprados.sort((a, b) => a.nome.compareTo(b.nome));
+  }
+
+  void verProdutosComprados() {
+    List<Produto> produtosOrdenados = produtosComprados;
+    print('Produtos comprados por $nome:');
+    for (var produto in produtosOrdenados) {
+      print('- Produto: ${produto.nome}, Valor:${produto.valor} reais');
+    }
   }
 }
