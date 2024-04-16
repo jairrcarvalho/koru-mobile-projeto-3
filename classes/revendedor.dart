@@ -57,7 +57,7 @@ class Revendedor extends Pessoa {
   double calcularLucro() {
     double totalLucro = 0.0;
     totalLucro = calcularTotalVendido() * porcentagemLucro;
-    return totalLucro;
+    return double.parse(totalLucro.toStringAsFixed(2));
   }
 
   double calcularMediaProdutosVendidos() {
