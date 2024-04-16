@@ -14,10 +14,11 @@ class Revendedor extends Pessoa {
     required this.matricula,
     required Genero genero,
   }) : super(
-            nome: nome,
-            dataDeNascimento: dataDeNascimento,
-            cpf: cpf,
-            genero: genero);
+          nome: nome,
+          dataDeNascimento: dataDeNascimento,
+          cpf: cpf,
+          genero: genero,
+        );
 
   @override
   void falar(String mensagem) {
@@ -41,7 +42,7 @@ class Revendedor extends Pessoa {
       produto.realizarVenda();
       produtosVendidos.add(produto);
     } catch (e) {
-      throw e; 
+      throw e;
     }
   }
 
@@ -57,5 +58,14 @@ class Revendedor extends Pessoa {
     double totalLucro = 0.0;
     totalLucro = calcularTotalVendido() * porcentagemLucro;
     return totalLucro;
+  }
+
+  double calcularMediaProdutosVendidos() {
+    if (produtosVendidos.isEmpty) {
+      return 0.0;
+    }
+
+    double totalVendido = calcularTotalVendido();
+    return totalVendido / produtosVendidos.length;
   }
 }
