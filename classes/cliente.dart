@@ -1,5 +1,3 @@
-import 'dart:html_common';
-
 import 'enums.dart';
 import 'pessoa.dart';
 import 'produto.dart';
@@ -78,7 +76,8 @@ class Cliente extends Pessoa {
     }
     return total;
   }
- void ordenarProdutosComprados(List<Produto> produtosComprados){
+
+  void ordenarProdutosComprados(List<Produto> produtosComprados){
     produtosComprados.sort((a, b) => a.nome.compareTo(b.nome));
   }
 }
