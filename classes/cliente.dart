@@ -82,7 +82,16 @@ class Cliente extends Pessoa {
         'O Total gasto por $nome foi de ${calcularTotalGasto()} reais e a média de valor dos produtos comprados é ${calcularMediaProdutosComprados()} reais.');
   }
 
-  void ordenarProdutosComprados(List<Produto> produtosComprados) {
+  void ordenarProdutosComprados() {
     produtosComprados.sort((a, b) => a.nome.compareTo(b.nome));
+  }
+
+  void verProdutosComprados() {
+    ordenarProdutosComprados();
+
+    print('Produtos comprados por $nome:');
+    for (var produto in produtosComprados) {
+      print('- Produto: ${produto.nome}, Valor: ${produto.valor} reais');
+    }
   }
 }
