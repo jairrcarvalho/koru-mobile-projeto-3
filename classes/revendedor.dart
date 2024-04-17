@@ -14,10 +14,11 @@ class Revendedor extends Pessoa {
     required this.matricula,
     required Genero genero,
   }) : super(
-            nome: nome,
-            dataDeNascimento: dataDeNascimento,
-            cpf: cpf,
-            genero: genero);
+          nome: nome,
+          dataDeNascimento: dataDeNascimento,
+          cpf: cpf,
+          genero: genero,
+        );
 
   @override
   void falar(String mensagem) {
@@ -50,31 +51,33 @@ class Revendedor extends Pessoa {
     for (Produto produto in produtosVendidos) {
       totalVendido += produto.valor * produto.qtdVendida;
     }
-    return totalVendido;
+    return double.parse(totalVendido.toStringAsFixed(2));
   }
 
   double calcularLucro() {
     double totalLucro = 0.0;
     totalLucro = calcularTotalVendido() * porcentagemLucro;
-    return totalLucro;
+    return double.parse(totalLucro.toStringAsFixed(2));
+  }
+
+  double calcularMediaProdutosVendidos() {
+    if (produtosVendidos.isEmpty) {
+      return 0.0;
+    }
+
+    double totalVendido = calcularTotalVendido();
+
+    return double.parse(
+        (totalVendido / produtosVendidos.length).toStringAsFixed(2));
   }
 
   void verResumo() {
     double totalVendido = calcularTotalVendido();
     double lucro = calcularLucro();
+    double media = calcularMediaProdutosVendidos();
 
-    double media = totalVendido / produtosVendidos.length;
-
-    try {
-      if (media.isNaN) {
-        throw FormatException('Não tem como calcular a média sendo 0.');
-      }
-    } catch (e) {
-      media = 0.0;
-      print('Erro ao calcular a média: $e');
-    }
     print(
-      'O total vendido por $nome foi ${totalVendido.toStringAsFixed(2)} reais e a média aritmética de valor dos produtos vendidos é ${media.toStringAsFixed(2)} reais. O lucro recebido foi de ${lucro.toStringAsFixed(2)} reais.',
+      'O total vendido por $nome foi $totalVendido reais e a média aritmética de valor dos produtos vendidos é $media reais. O lucro recebido foi de $lucro reais.',
     );
   }
 }

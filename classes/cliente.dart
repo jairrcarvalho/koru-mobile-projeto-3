@@ -66,7 +66,7 @@ class Cliente extends Pessoa {
       soma += produto.valor;
     }
 
-    return soma / produtosComprados.length;
+    return double.parse((soma / produtosComprados.length).toStringAsFixed(2));
   }
 
   double calcularTotalGasto() {
@@ -74,18 +74,19 @@ class Cliente extends Pessoa {
     for (var produto in produtosComprados) {
       total += produto.valor;
     }
-    return total;
+    return double.parse(total.toStringAsFixed(2));
   }
 
-  void ordenarProdutosComprados(List<Produto> produtosComprados) {
+  void ordenarProdutosComprados() {
     produtosComprados.sort((a, b) => a.nome.compareTo(b.nome));
   }
 
   void verProdutosComprados() {
-    List<Produto> produtosOrdenados = produtosComprados;
+    ordenarProdutosComprados();
+
     print('Produtos comprados por $nome:');
-    for (var produto in produtosOrdenados) {
-      print('- Produto: ${produto.nome}, Valor:${produto.valor} reais');
+    for (var produto in produtosComprados) {
+      print('- Produto: ${produto.nome}, Valor: ${produto.valor} reais');
     }
   }
 }
