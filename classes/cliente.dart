@@ -77,6 +77,11 @@ class Cliente extends Pessoa {
     return double.parse(total.toStringAsFixed(2));
   }
 
+  void verResumo() {
+    print(
+        'O Total gasto por $nome foi de ${calcularTotalGasto()} reais e a média de valor dos produtos comprados é ${calcularMediaProdutosComprados()} reais.');
+  }
+
   void ordenarProdutosComprados() {
     produtosComprados.sort((a, b) => a.nome.compareTo(b.nome));
   }
