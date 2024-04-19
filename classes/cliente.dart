@@ -32,7 +32,7 @@ class Cliente extends Pessoa {
 
   void comprarProduto(Produto produto, Revendedor revendedor) {
     try {
-      late double? dinheiroPreCompra = dinheiro;
+      double dinheiroPreCompra = dinheiro;
       if (dinheiro >= produto.valor) {
         revendedor.venderProduto(produto);
         dinheiro = dinheiroPreCompra - produto.valor;
