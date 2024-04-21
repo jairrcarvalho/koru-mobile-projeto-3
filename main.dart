@@ -202,4 +202,14 @@ main() {
   clienteC.comprarProduto(produtoA, revendedorB);
 
   pularLinha();
+
+  revendedorB.verResumo();
+
+  pularLinha();
+
+  clienteC.verResumo();
+
+  pularLinha();
+
+  clienteC.verProdutosComprados();
 }
