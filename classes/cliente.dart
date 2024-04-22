@@ -106,7 +106,8 @@ class Cliente extends Pessoa {
   void trocarPontosPorBrinde(Brinde brinde) {
     if (pontos >= brinde.pontosNecessarios) {
       try {
-        brinde.realizarTroca(this);
+        brinde.realizarTroca();
+        pontos -= brinde.pontosNecessarios;
         brindes.add(brinde);
         print('Pontos restantes: $pontos');
       } catch (e) {

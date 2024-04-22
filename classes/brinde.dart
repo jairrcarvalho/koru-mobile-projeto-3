@@ -1,5 +1,3 @@
-import 'cliente.dart';
-
 class Brinde {
   final String nome;
   final int pontosNecessarios;
@@ -15,13 +13,12 @@ class Brinde {
     print('Para ganhar um(a) $nome você precisa de $pontosNecessarios pontos.');
   }
 
-  void realizarTroca(Cliente cliente) {
+  void realizarTroca() {
     if (qtdEmEstoque > 0) {
-      cliente.pontos -= pontosNecessarios;
       qtdEmEstoque--;
       print('Troca realizada! Você ganhou um(a) $nome.');
     } else {
-      print('No momento não possuímos o produto $nome em estoque.');
+      throw 'No momento não possuímos o produto $nome em estoque.';
     }
   }
 
