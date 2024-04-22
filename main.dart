@@ -278,5 +278,5 @@ main() {
   pularLinha();
   print("Testes verBrindes");
   clienteC
-      .verBrindes(); // "Brindes recebidos por Maria: Colônia Egeo 10ml Sabonete Luxurious"
+      .verBrindes(); // "Brindes recebidos por Julia: Colônia Egeo 10ml Sabonete Luxurious ... "
 }
