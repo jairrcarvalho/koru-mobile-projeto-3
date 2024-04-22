@@ -2,10 +2,13 @@ import 'enums.dart';
 import 'pessoa.dart';
 import 'produto.dart';
 import 'revendedor.dart';
+import 'brinde.dart';
 
 class Cliente extends Pessoa {
   double dinheiro;
   List<Produto> produtosComprados = [];
+  List<Brinde> brindes = []; // Atributo inicializado com array vazia
+  int pontos = 0; // Atributo inicializado com 0 (zero)
 
   Cliente({
     this.dinheiro = 0,
@@ -32,10 +35,11 @@ class Cliente extends Pessoa {
 
   void comprarProduto(Produto produto, Revendedor revendedor) {
     try {
-      double dinheiroPreCompra = dinheiro;
+      late double? dinheiroPreCompra = dinheiro;
       if (dinheiro >= produto.valor) {
         revendedor.venderProduto(produto);
         dinheiro = dinheiroPreCompra - produto.valor;
+        pontos++;
         String valorArredondado = produto.valor.toStringAsFixed(2);
         String dinheiroPreCompraArredondado =
             dinheiroPreCompra.toStringAsFixed(2);
@@ -92,6 +96,44 @@ class Cliente extends Pessoa {
     print('Produtos comprados por $nome:');
     for (var produto in produtosComprados) {
       print('- Produto: ${produto.nome}, Valor: ${produto.valor} reais');
+    }
+  }
+
+  void consultarTotalPontos() {
+    print("$nome possui $pontos pontos.");
+  }
+
+  void trocarPontosPorBrinde(Brinde brinde) {
+    if (pontos >= brinde.pontosNecessarios) {
+      try {
+        brinde.realizarTroca(this);
+        brindes.add(brinde);
+        print('Pontos restantes: $pontos');
+      } catch (e) {
+        print('Erro ao trocar pontos por brinde: $e');
+      }
+    } else {
+      print(
+          'Você não possui pontos suficientes para trocar pelo brinde ${brinde.nome}.');
+      print('Pontos restantes: $pontos');
+    }
+  }
+
+  void ordenarBrindes() {
+    brindes.sort((a, b) => a.nome.compareTo(b.nome));
+  }
+
+  void verBrindes() {
+    if (brindes.isEmpty) {
+      print('Você ainda não possui brindes.');
+      return;
+    }
+
+    ordenarBrindes();
+
+    print('Brindes recebidos por $nome:');
+    for (var brinde in brindes) {
+      print('- $brinde');
     }
   }
 }
