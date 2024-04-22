@@ -38,4 +38,22 @@ class Pessoa {
     }
     return idade;
   }
+
+  void termometroDoHumor(Humor humor) {
+    switch (humor) {
+      case Humor.feliz:
+        print('Que bom que você está feliz hoje, $nome!');
+        break;
+      case Humor.triste:
+        print(
+            'Sinto muito que você esteja triste, $nome. Posso te ajudar em algo?');
+        break;
+      case Humor.ansiosa:
+        print('Calma, $nome. Respire fundo e tudo vai dar certo.');
+        break;
+      // ... (adicione outros casos para os outros humores)
+      default:
+        print('Não entendi o seu humor $nome. Tente novamente.');
+    }
+  }
 }
