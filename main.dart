@@ -19,10 +19,11 @@ main() {
   Produto produtoD = Produto(
       nome: 'Cuide-se Bem Biscoito ou Bolacha', valor: 96.90, qtdEmEstoque: 2);
   print("Testes da classe Produto");
-  print("Produto A: ${produtoA.nome}");
-  print("Produto B: ${produtoB.nome}");
-  print("Produto C: ${produtoC.nome}");
-  print("Produto D: ${produtoD.nome}");
+  divisoriaSimples();
+  print("Produto A: $produtoA");
+  print("Produto B: $produtoB");
+  print("Produto C: $produtoC");
+  print("Produto D: $produtoD");
   divisoriaSimples();
   pularLinha();
 
@@ -100,10 +101,11 @@ main() {
 
   /* Testes da classe Pessoa */
   print("Testes da classe Pessoa");
-  print("pessoaA: ${pessoaA.nome}");
-  print("Pessoa B: ${pessoaB.nome}");
-  print("Pessoa C: ${pessoaC.nome}");
-  print("Pessoa D:${pessoaD.nome}");
+  divisoriaSimples();
+  print("pessoaA: $pessoaA");
+  print("Pessoa B: $pessoaB");
+  print("Pessoa C: $pessoaC");
+  print("Pessoa D: $pessoaD");
   divisoriaSimples();
   pularLinha();
   print("Testes falar");
@@ -112,7 +114,7 @@ main() {
   pessoaB.falar('Estou bem e você?');
   pessoaC.falar('Qual o melhor grupo do desenvolve?');
   pessoaA.falar('É o grupo Dartmode, eles são dedicados.');
-  pessoaA.falar('Sim, estão de parabéns.');
+  pessoaB.falar('Sim, estão de parabéns.');
   pessoaD.falar('Oi pessoal sobre o que estão falando?');
   divisoriaSimples();
   pularLinha();
@@ -138,8 +140,6 @@ main() {
   pularLinha();
   /* ------------------------------------------ */
 
-  print("Testes da classe Revendedor");
-  divisoriaSimples();
   Revendedor revendedorA = Revendedor(
       nome: 'Matheus Queiroz',
       dataDeNascimento: DateTime(2000, 12, 01),
@@ -167,10 +167,14 @@ main() {
       cpf: '97063889079',
       matricula: '6897',
       genero: Genero.masculino);
-  print("Revendedor A: ${revendedorA.nome}");
-  print("Revendedor B: ${revendedorB.nome}");
-  print("Revendedor C: ${revendedorC.nome}");
-  print("Revendedor D: ${revendedorD.nome}");
+
+  print("Testes da classe Revendedor");
+  divisoriaSimples();
+  print("Revendedor A: $revendedorA");
+  print("Revendedor B: $revendedorB");
+  print("Revendedor C: $revendedorC");
+  print("Revendedor D: $revendedorD");
+
   divisoriaSimples();
   pularLinha();
   print("Testes falar");
@@ -214,7 +218,6 @@ main() {
   divisoriaSimples();
   Cliente clienteA = Cliente(
     nome: 'Marcos',
-    dinheiro: 2000.50,
     dataDeNascimento: DateTime(1994, 05, 06),
     cpf: '122345454454',
     genero: Genero.masculino,
@@ -222,7 +225,6 @@ main() {
 
   Cliente clienteB = Cliente(
     nome: 'Mario',
-    dinheiro: 10000000,
     dataDeNascimento: DateTime(2000, 10, 01),
     cpf: '154654655216516',
     genero: Genero.outro,
@@ -242,10 +244,10 @@ main() {
     genero: Genero.masculino,
   );
 
-  print("Cliente A: ${clienteA.nome}");
-  print("Cliente B: ${clienteB.nome}");
-  print("Cliente C: ${clienteC.nome}");
-  print("Cliente D: ${clienteD.nome}");
+  print("Cliente A: $clienteA");
+  print("Cliente B: $clienteB");
+  print("Cliente C: $clienteC");
+  print("Cliente D: $clienteD");
   divisoriaSimples();
   pularLinha();
   print("Testes falar");
@@ -253,7 +255,7 @@ main() {
   clienteA.falar('Quero comprar um perfume');
   revendedorA.falar('Fale com meu minha amiga Thais');
   revendedorB.falar('Estou aqui para te atender');
-  clienteA.falar('Oi, como posso ajudar?');
+  revendedorC.falar('Oi, como posso ajudar?');
   clienteB.falar('Também quero comprar.');
   clienteC.falar('Já comprei com ela muito boa revendedora.');
   divisoriaSimples();
@@ -268,18 +270,27 @@ main() {
   clienteC.adicionarDineiro(10000.00);
   clienteD.adicionarDineiro(50000.01);
   divisoriaSimples();
+  pularLinha();
+
   print("Testes comprarProduto");
+  divisoriaSimples();
+  print("Cliente A: $clienteA");
   clienteA.comprarProduto(produtoA, revendedorD);
   clienteA.comprarProduto(produtoA, revendedorD);
   clienteA.comprarProduto(produtoA, revendedorD);
   divisoriaSimples();
-  clienteC.comprarProduto(produtoB, revendedorB);
+  print("Cliente B: $clienteB");
+  clienteB.comprarProduto(produtoB, revendedorC);
   divisoriaSimples();
+  print("Cliente C: $clienteC");
   clienteC.comprarProduto(produtoA, revendedorA);
   clienteC.comprarProduto(produtoB, revendedorB);
+  divisoriaSimples();
   clienteC.comprarProduto(produtoC, revendedorC);
+  divisoriaSimples();
   clienteC.comprarProduto(produtoD, revendedorD);
   divisoriaSimples();
+  print("Cliente D: $clienteD");
   clienteD.comprarProduto(produtoB, revendedorB);
   clienteD.comprarProduto(produtoB, revendedorA);
   clienteD.comprarProduto(produtoB, revendedorB);
@@ -378,7 +389,6 @@ main() {
   clienteC.trocarPontosPorBrinde(brindeB);
   clienteC.trocarPontosPorBrinde(brindeC);
   clienteC.trocarPontosPorBrinde(brindeD);
-  clienteC.trocarPontosPorBrinde(brindeA);
   divisoriaSimples();
   print("Cliente D:");
   clienteD.trocarPontosPorBrinde(brindeD);

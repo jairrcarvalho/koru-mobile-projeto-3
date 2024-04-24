@@ -56,4 +56,9 @@ class Pessoa {
         print('Não entendi o seu humor $nome. Tente novamente.');
     }
   }
+
+  @override
+  String toString() {
+    return 'Nome: $nome | Idade: $idade | CPF: $cpf | Data de Nascimento: $dataDeNascimento | Gênero: $genero';
+  }
 }

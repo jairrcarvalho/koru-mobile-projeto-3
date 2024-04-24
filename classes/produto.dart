@@ -35,4 +35,9 @@ class Produto {
     return print(
         "Produto $nome: R\$ ${receita.toStringAsFixed(2).replaceAll('.', ',')} de receita gerada.");
   }
+
+  @override
+  String toString() {
+    return 'Produto: $nome | Valor: ${valor.toStringAsFixed(2).replaceAll('.', ',')} | Estoque: $qtdEmEstoque';
+  }
 }
