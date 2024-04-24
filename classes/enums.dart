@@ -4,4 +4,4 @@ enum Genero {
   outro,
 }
 
-enum Humor { feliz, triste, ansiosa }
+enum Humor { feliz, triste, ansiosa, confusa }

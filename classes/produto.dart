@@ -10,27 +10,29 @@ class Produto {
     required this.qtdEmEstoque,
   });
 
- void realizarVenda() {
-    try {
-      if (qtdEmEstoque > 0) {
-        qtdVendida += 1;
-        qtdEmEstoque -= 1;
+  void realizarVenda() {
+    if (qtdEmEstoque > 0) {
+      qtdVendida += 1;
+      qtdEmEstoque -= 1;
 
       print('Compra de um(a) produto $nome realizada com sucesso!');
       print('Quantidade em estoque: $qtdEmEstoque');
-      }
-      if (qtdEmEstoque == 0) {
-        print("No momento não possuímos o produto $nome em estoque.");
-      }
-      if (qtdEmEstoque < 0) {
-        print("Quantidade inválida.");
-      }
-    } catch (e) {
-      throw e;
+    }
+    if (qtdEmEstoque == 0) {
+      throw ("No momento não possuímos o produto $nome em estoque.");
+    }
+    if (qtdEmEstoque < 0) {
+      throw ("Quantidade inválida.");
     }
   }
 
   double verReceitaGerada() {
     return this.valor * this.qtdVendida;
+  }
+
+  void verReceitaGeradaFormatada() {
+    double receita = this.valor * this.qtdVendida;
+    return print(
+        "Produto $nome: R\$ ${receita.toStringAsFixed(2).replaceAll('.', ',')} de receita gerada.");
   }
 }

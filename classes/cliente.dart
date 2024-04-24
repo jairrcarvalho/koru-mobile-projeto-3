@@ -7,8 +7,8 @@ import 'brinde.dart';
 class Cliente extends Pessoa {
   double dinheiro;
   List<Produto> produtosComprados = [];
-  List<Brinde> brindes = []; // Atributo inicializado com array vazia
-  int pontos = 0; // Atributo inicializado com 0 (zero)
+  List<Brinde> brindes = [];
+  int pontos = 0;
 
   Cliente({
     this.dinheiro = 0,
@@ -25,12 +25,13 @@ class Cliente extends Pessoa {
 
   @override
   void falar(String mensagem) {
-    print("Cliente $nome diz: $mensagem.");
+    print("Cliente $nome diz: $mensagem");
   }
 
   void adicionarDineiro(double valor) {
     dinheiro += valor;
-    print("$nome possui agora $dinheiro");
+    print(
+        "$nome possui agora ${dinheiro.toStringAsFixed(2).replaceAll('.', ',')}");
   }
 
   void comprarProduto(Produto produto, Revendedor revendedor) {
@@ -40,10 +41,12 @@ class Cliente extends Pessoa {
         revendedor.venderProduto(produto);
         dinheiro = dinheiroPreCompra - produto.valor;
         pontos++;
-        String valorArredondado = produto.valor.toStringAsFixed(2);
+        String valorArredondado =
+            produto.valor.toStringAsFixed(2).replaceAll('.', ',');
         String dinheiroPreCompraArredondado =
             dinheiroPreCompra.toStringAsFixed(2);
-        String dinheiroArredondado = dinheiro.toStringAsFixed(2);
+        String dinheiroArredondado =
+            dinheiro.toStringAsFixed(2).replaceAll('.', ',');
         produtosComprados.add(produto);
         print("Valor do produto: R\$ " + valorArredondado);
         print("Saldo do cliente: R\$ " + dinheiroPreCompraArredondado);
@@ -83,7 +86,7 @@ class Cliente extends Pessoa {
 
   void verResumo() {
     print(
-        'O Total gasto por $nome foi de ${calcularTotalGasto()} reais e a média de valor dos produtos comprados é ${calcularMediaProdutosComprados()} reais.');
+        'O Total gasto por $nome foi de ${calcularTotalGasto().toStringAsFixed(2).replaceAll('.', ',')} reais e a média de valor dos produtos comprados é ${calcularMediaProdutosComprados().toStringAsFixed(2).replaceAll('.', ',')} reais.');
   }
 
   void ordenarProdutosComprados() {
@@ -95,7 +98,8 @@ class Cliente extends Pessoa {
 
     print('Produtos comprados por $nome:');
     for (var produto in produtosComprados) {
-      print('- Produto: ${produto.nome}, Valor: ${produto.valor} reais');
+      print(
+          '- Produto: ${produto.nome}, Valor: ${produto.valor.toStringAsFixed(2).replaceAll('.', ',')} reais');
     }
   }
 

@@ -77,7 +77,7 @@ class Revendedor extends Pessoa {
     double media = calcularMediaProdutosVendidos();
 
     print(
-      'O total vendido por $nome foi $totalVendido reais e a média aritmética de valor dos produtos vendidos é $media reais. O lucro recebido foi de $lucro reais.',
+      'O total vendido por $nome foi ${totalVendido.toStringAsFixed(2).replaceAll('.', ',')} reais e a média aritmética de valor dos produtos vendidos é ${media.toStringAsFixed(2).replaceAll('.', ',')} reais. O lucro recebido foi de $lucro reais.',
     );
   }
 }
