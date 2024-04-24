@@ -19,10 +19,10 @@ main() {
   Produto produtoD = Produto(
       nome: 'Cuide-se Bem Biscoito ou Bolacha', valor: 96.90, qtdEmEstoque: 2);
   print("Testes da classe Produto");
-  print("Produto A: $produtoA");
-  print("Produto B: $produtoB");
-  print("Produto C: $produtoC");
-  print("Produto D: $produtoD");
+  print("Produto A: ${produtoA.nome}");
+  print("Produto B: ${produtoB.nome}");
+  print("Produto C: ${produtoC.nome}");
+  print("Produto D: ${produtoD.nome}");
   divisoriaSimples();
   pularLinha();
 
@@ -100,10 +100,10 @@ main() {
 
   /* Testes da classe Pessoa */
   print("Testes da classe Pessoa");
-  print("pessoaA: $pessoaA");
-  print("Pessoa B: $pessoaB");
-  print("Pessoa C: $pessoaC");
-  print("Pessoa D: $pessoaD");
+  print("pessoaA: ${pessoaA.nome}");
+  print("Pessoa B: ${pessoaB.nome}");
+  print("Pessoa C: ${pessoaC.nome}");
+  print("Pessoa D:${pessoaD.nome}");
   divisoriaSimples();
   pularLinha();
   print("Testes falar");
@@ -167,10 +167,10 @@ main() {
       cpf: '97063889079',
       matricula: '6897',
       genero: Genero.masculino);
-  print("Revendedor A: $revendedorA");
-  print("Revendedor B: $revendedorB");
-  print("Revendedor C: $revendedorC");
-  print("Revendedor D: $revendedorD");
+  print("Revendedor A: ${revendedorA.nome}");
+  print("Revendedor B: ${revendedorB.nome}");
+  print("Revendedor C: ${revendedorC.nome}");
+  print("Revendedor D: ${revendedorD.nome}");
   divisoriaSimples();
   pularLinha();
   print("Testes falar");
@@ -242,10 +242,10 @@ main() {
     genero: Genero.masculino,
   );
 
-  print("Cliente A: $clienteA");
-  print("Cliente B: $clienteB");
-  print("Cliente C: $clienteC");
-  print("Cliente D: $clienteD");
+  print("Cliente A: ${clienteA.nome}");
+  print("Cliente B: ${clienteB.nome}");
+  print("Cliente C: ${clienteC.nome}");
+  print("Cliente D: ${clienteD.nome}");
   divisoriaSimples();
   pularLinha();
   print("Testes falar");
