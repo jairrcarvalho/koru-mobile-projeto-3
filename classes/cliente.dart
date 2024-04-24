@@ -141,4 +141,9 @@ class Cliente extends Pessoa {
       print('- $brinde');
     }
   }
+
+  @override
+  String toString() {
+    return 'Nome: $nome | Data de Nascimento: $dataDeNascimento | CPF: $cpf | Gênero: $genero | Dinheiro: $dinheiro';
+  }
 }
